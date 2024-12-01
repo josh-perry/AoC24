@@ -4,7 +4,7 @@ public class Day1 : IDay
 {
     public int Day => 1;
 
-    public string Part1(string input)
+    private (List<int>, List<int>) ParseInput(string input)
     {
         var leftSideNumbers = new List<int>();
         var rightSideNumbers = new List<int>();
@@ -18,6 +18,13 @@ public class Day1 : IDay
             leftSideNumbers.Add(left);
             rightSideNumbers.Add(right);
         }
+        
+        return (leftSideNumbers, rightSideNumbers);
+    }
+
+    public string Part1(string input)
+    {
+        var (leftSideNumbers, rightSideNumbers) = ParseInput(input);
         
         var orderedLeftSideNumbers = leftSideNumbers.OrderBy(x => x).ToList();
         var orderedRightSideNumbers = rightSideNumbers.OrderBy(x => x).ToList();
@@ -38,6 +45,14 @@ public class Day1 : IDay
 
     public string Part2(string input)
     {
-        return string.Empty;
+        var (leftSideNumbers, rightSideNumbers) = ParseInput(input);
+        var totalValue = 0;
+
+        foreach (var leftSideNumber in leftSideNumbers)
+        {
+            totalValue += leftSideNumber * rightSideNumbers.Count(x => x == leftSideNumber);
+        }
+        
+        return totalValue.ToString();
     }
 }

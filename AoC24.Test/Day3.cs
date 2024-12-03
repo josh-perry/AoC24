@@ -24,9 +24,8 @@ public class Day3
     {
         // Arrange
         var input = """
-                    
+                    xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))
                     """;
-
         
         var day = new Days.Day3();
 
@@ -34,6 +33,6 @@ public class Day3
         var result = day.Part2(input);
 
         // Assert
-        Assert.Equal("", result);
+        Assert.Equal("48", result);
     }
 }

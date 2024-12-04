@@ -33,7 +33,16 @@ public class Day4
     {
         // Arrange
         var input = """
-                    
+                    MMMSXXMASM
+                    MSAMXMSMSA
+                    AMXSXMAAMM
+                    MSAMASMSMX
+                    XMASAMXAMM
+                    XXAMMXXAMA
+                    SMSMSASXSS
+                    SAXAMASAAA
+                    MAMMMXMMMM
+                    MXMXAXMASX
                     """;
         
         var day = new Days.Day4();
@@ -42,5 +51,6 @@ public class Day4
         var result = day.Part2(input);
 
         // Assert
+        Assert.Equal("9", result);
     }
 }
